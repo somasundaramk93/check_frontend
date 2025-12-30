@@ -16,6 +16,9 @@ require('dotenv').config({path:'./.env'});
     const students=await student.find();
     res.json(students);
  });
+ app.get('/',()=>{
+   res.json({mes:"hello"})
+ })
  app.post("/students",async(req,res)=>{
     const students=await student.create(req.body)
     res.json(students)
