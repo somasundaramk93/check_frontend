@@ -5,7 +5,10 @@ const cors=require('cors');
 require('dotenv').config({path:'./.env'});
  const app=express();
  app.use(express.json());
- app.use(cors());
+ app.use(cors({
+   methods:["GET","POST","PUT","DELETE"],
+   origin:"*"
+ }));
   mongoose.connect(process.env.MONGO_DB)
    .then(()=>console.log("mongodb connected"))
  .catch(()=>console.log("error"))
